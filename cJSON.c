@@ -1770,7 +1770,7 @@ static cJSON_bool print_object(const cJSON *const item, printbuffer *const outpu
         *output_pointer++ = ' ';
         *output_pointer++ = ' ';
       }
-      output_buffer->offset += output_buffer->depth;
+      output_buffer->offset += (output_buffer->depth * 2);
     }
 
     /* print key */
