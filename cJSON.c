@@ -560,7 +560,6 @@ static cJSON_bool print_number(const cJSON *const item, printbuffer *const outpu
   size_t i = 0;
   unsigned char number_buffer[26] = {0}; /* temporary buffer to print the number into */
   unsigned char decimal_point = get_decimal_point();
-  double test = 0.0;
 
   if (output_buffer == NULL)
   {
@@ -575,7 +574,7 @@ static cJSON_bool print_number(const cJSON *const item, printbuffer *const outpu
   else
   {
     // JW: For 12-bit synth we just need an integer value
-    length = sprintf((char *)number_buffer, "%li", (int16_t)item->valueint);
+    length = sprintf((char *)number_buffer, "%i", (int16_t)item->valueint);
 
     //      /* Try 15 decimal places of precision to avoid nonsignificant nonzero digits */
     //      length = sprintf((char*)number_buffer, "%1.15g", d);
