@@ -323,8 +323,8 @@ static cJSON_bool parse_number(cJSON *const item, parse_buffer *const input_buff
   }
 
   /* copy the number into a temporary buffer and replace '.' with the decimal point
-     * of the current locale (for strtod)
-     * This also takes care of '\0' not necessarily being available for marking the end of the input */
+   * of the current locale (for strtod)
+   * This also takes care of '\0' not necessarily being available for marking the end of the input */
   for (i = 0; (i < (sizeof(number_c_string) - 1)) && can_access_at_index(input_buffer, i); i++)
   {
     switch (buffer_at_offset(input_buffer)[i])
@@ -601,7 +601,7 @@ static cJSON_bool print_number(const cJSON *const item, printbuffer *const outpu
   }
 
   /* copy the printed number to the output and replace locale
-     * dependent decimal point with '.' */
+   * dependent decimal point with '.' */
   for (i = 0; i < ((size_t)length); i++)
   {
     if (number_buffer[i] == decimal_point)
@@ -720,8 +720,8 @@ static unsigned char utf16_literal_to_utf8(const unsigned char *const input_poin
   }
 
   /* encode as UTF-8
-     * takes at maximum 4 bytes to encode:
-     * 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx */
+   * takes at maximum 4 bytes to encode:
+   * 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx */
   if (codepoint < 0x80)
   {
     /* normal ascii, encoding 0xxxxxxx */
@@ -1988,8 +1988,8 @@ static cJSON_bool add_item_to_array(cJSON *array, cJSON *item)
 
   child = array->child;
   /*
-     * To find the last item in array quickly, we use prev in array
-     */
+   * To find the last item in array quickly, we use prev in array
+   */
   if (child == NULL)
   {
     /* list is empty, start new one */
@@ -2364,9 +2364,9 @@ cJSON_ReplaceItemViaPointer(cJSON *const parent, cJSON *const item, cJSON *repla
   }
   else
   { /*
-         * To find the last item in array quickly, we use prev in array.
-         * We can't modify the last item's next pointer where this item was the parent's child
-         */
+     * To find the last item in array quickly, we use prev in array.
+     * We can't modify the last item's next pointer where this item was the parent's child
+     */
     if (replacement->prev != NULL)
     {
       replacement->prev->next = replacement;
@@ -3172,7 +3172,7 @@ cJSON_Compare(const cJSON *const a, const cJSON *const b, const cJSON_bool case_
     }
 
     /* doing this twice, once on a and b to prevent true comparison if a subset of b
-             * TODO: Do this the proper way, this is just a fix for now */
+     * TODO: Do this the proper way, this is just a fix for now */
     cJSON_ArrayForEach(b_element, b)
     {
       a_element = get_object_item(a, b_element->string, case_sensitive);
